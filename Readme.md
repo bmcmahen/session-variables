@@ -1,7 +1,6 @@
-
 # session-variables
 
-  Persistent session variables for maintaining an application state inbetween user sessions. I'm using this for a mobile app, so that I can record a user's application state, and restore it when the user reloads the page... turns off their iPad, etc.
+  Persistent session variables for maintaining an application state inbetween user sessions. I'm using this for a mobile app so that I can record a user's application state and restore it when the user reloads the page, closes the app, etc.
 
 ## Installation
 
@@ -11,9 +10,9 @@
 
 ## API
 
-### Session
+### Session()
 
-create a new collection of session variables.
+Create a new session variables instance.
 
 ### set(key, value)
 
