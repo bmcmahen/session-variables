@@ -1,0 +1,18 @@
+{
+  "name": "session-variables",
+  "repo": "bmcmahen/session-variables",
+  "description": "persistent session variables for maintaining an application state inbetween user sessions",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter": "1.0.1",
+    "component/each": "0.0.1",
+    "yields/store": "0.2.0"
+   },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
