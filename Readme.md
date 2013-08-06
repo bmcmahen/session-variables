@@ -16,7 +16,7 @@ Create a new session variables instance.
 
 ### set(key, value, options)
 
-Set a key to a value, emitting a `change:key` event. Options: `{ silent: true}` to silence emitter events and `{ dontStore: true }` to avoid using localstorage for that particular setter.
+Set a key to a value, emitting a `change:key` event. Options: `{ silent: true}` to silence emitter events and `{ noStore: true }` to avoid using localstorage for that particular setter.
 
 ### get(key)
 

@@ -20,7 +20,7 @@ Session.prototype.set = function(key, value, options){
   options = options || {};
   var prev = this.attributes[key];
   this.attributes[key] = value;
-  if (!options.dontStore) store(key, value);
+  if (!options.noStore) store(key, value);
   if (!options.silent) this.emit('change:'+ key, value, prev);
 };
 
@@ -49,7 +49,7 @@ Session.prototype.restore = function(silent){
   var self = this;
   var storage = store();
   each(storage, function(key, val){
-    self.set(key, val, { dontStore : true });
+    self.set(key, val, { noStore : true });
   });
   this.restored = true;
 };
