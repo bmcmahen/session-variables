@@ -15,9 +15,9 @@
 
 create a new collection of session variables.
 
-### set(key, value)
+### set(key, value, options)
 
-Set a key to a value, emitting a `change:key` event.
+Set a key to a value, emitting a `change:key` event. Options: `{ silent: true}` to silence emitter events and `{ dontStore: true }` to avoid using localstorage for that particular setter.
 
 ### get(key)
 
@@ -31,9 +31,9 @@ Unset a key, emitting a `change:key` event.
 
 Clear all of the current session variables.
 
-### setDefault(key, value)
+### setDefault(key, value, options)
 
-Sets the key to value, only if that key has not been set. This is useful when restoring an application state from localstorage.
+Sets the key to value, only if that key has not been set. This is useful when restoring an application state from localstorage. Options are the same as for `set`.
 
 ### restore()
 

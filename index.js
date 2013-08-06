@@ -16,11 +16,12 @@ function Session(){
 
 Emitter(Session.prototype);
 
-Session.prototype.set = function(key, value){
+Session.prototype.set = function(key, value, options){
+	options = options || {};
 	var prev = this.attributes[key];
 	this.attributes[key] = value;
-	store(key, value);
-	this.emit('change:'+ key, value, prev);
+	if (!options.dontStore) store(key, value);
+	if (!options.silent) this.emit('change:'+ key, value, prev);
 };
 
 Session.prototype.get = function(key){
@@ -38,17 +39,17 @@ Session.prototype.clear = function(){
 	});
 };
 
-Session.prototype.setDefault = function(key, value){
+Session.prototype.setDefault = function(key, value, options){
 	if (!this.restored) this.restore();
-	if (!this.attributes[key]) this.set(key, value);
+	if (!this.attributes[key]) this.set(key, value, options);
 	return this;
 };
 
-Session.prototype.restore = function(){
+Session.prototype.restore = function(silent){
 	var self = this;
 	var storage = store();
 	each(storage, function(key, val){
-		self.set(key, val);
+		self.set(key, val, { dontStore : true });
 	});
 	this.restored = true;
 };
